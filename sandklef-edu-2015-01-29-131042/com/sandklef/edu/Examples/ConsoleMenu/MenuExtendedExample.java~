@@ -1,0 +1,23 @@
+import com.sandklef.edu.ConsoleMenu.*;
+
+public class SoundMenu extends ConsoleMenu{
+
+    public void startMeUp() {
+	//ConsoleMenu menu = new ConsoleMenu("-= Fordonsljud =-");
+	
+	final Car c   = new Car("ABC-123", 4, 200, "Strawberry lemonade", 13);
+	final Moped m = new Moped("XYZ-987", 2, 50, "Orange juice");
+	final MC mc   = new MC("XYZ-987", 2, 50, "Thy fear", 12);
+	
+	addMenuItem(new MenuItem(){
+		public void menuItemSelected() 
+		{ mc.makeSound(); } },"MC" );
+	addMenuItem(new MenuItem(){
+		public void menuItemSelected() 
+		{ m.makeSound(); } },"Moped" );
+	addMenuItem(new MenuItem(){
+		public void menuItemSelected() 
+		{ c.makeSound(); } },"Car" );
+	
+	run();
+    }
