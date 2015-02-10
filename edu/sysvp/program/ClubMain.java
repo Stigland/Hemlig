@@ -1,6 +1,4 @@
-//hejehejehlaslfgkfö TEST
-
-package myprogram.hmi.cli;
+package edu.sysvp.program;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -30,7 +28,7 @@ public class ClubMain {
 	System.out.println(" -----=====================-----");
 
 	//	Logger.setDebugLevel();
-	Scanner sc = new Scanner();
+	Scanner sc = new Scanner(System.in);
 	ClubHelper ch = new ClubHelper();
 	System.out.println("Choose an option");
 	System.out.println("1. List all members by family name");
