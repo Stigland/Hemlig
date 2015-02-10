@@ -1,14 +1,14 @@
-package myprogram.hmi.cli;
+package edu.sysvp.program;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.io.Console;
+
 import tig058.handin01.registry.ClubRegistry;
 import tig058.handin01.member.Member;
 import tig058.handin01.member.MemberAlphaComparator;
 import tig058.handin01.member.MemberAlphaFirstnameComparator;
 import tig058.handin01.log.Logger;
-import java.io.Console;
-
 
 public class ClubHelper {
 
