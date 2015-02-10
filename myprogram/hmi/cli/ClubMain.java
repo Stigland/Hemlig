@@ -1,3 +1,5 @@
+//hejehejehlaslfgkfö TEST
+
 package myprogram.hmi.cli;
 
 import java.util.ArrayList;
