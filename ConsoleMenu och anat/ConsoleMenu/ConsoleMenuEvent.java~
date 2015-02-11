@@ -1,0 +1,5 @@
+import java.util.EVentObject;
+
+public class ConsoleMenuEvent extends {
+
+}
