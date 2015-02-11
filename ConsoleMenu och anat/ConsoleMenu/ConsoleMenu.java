@@ -41,40 +41,40 @@ public class ConsoleMenu implements MenuItem {
     boolean debugMode = false;
 
     class InternalMenuItem {
-	MenuItem m;
-	String title;
+		MenuItem m;
+		String title;
 
-	InternalMenuItem(String title, MenuItem m) {
-	    this.m     = m;
-	    this.title = title;
-	}
+		InternalMenuItem(String title, MenuItem m) {
+	    	this.m     = m;
+	    	this.title = title;
+		}
 
-	public String getTitle() {
-	    return this.title;
-	}
+		public String getTitle() {
+	    	return this.title;
+		}
 
-	public MenuItem getMenuItem() {
-	    return this.m;
-	}
-    }
+		public MenuItem getMenuItem() {
+	    	return this.m;
+		}
+    	}
 
 
-    /* We can (hrmpfsfs?) assume that is CM itself who made this call */
-    public void menuItemSelected(ConsoleMenuEvent e) {
-	String itemTitle = e.getMenuItemTitle();
-	String menuTitle = e.getMenuTitle();
-	//	System.out.println("INTERNAL PRESS" + itemTitle + " " + menuTitle);
-	String savedPreMenu = preMenu;
-	if (preMenu.equals("")) {
-	    preMenu = menuTitle;
-	} else {
-	    preMenu = preMenu + "->" + menuTitle;
-	}
-	levels++;
-	run();
-	levels--;
-	preMenu = savedPreMenu;
-    }
+    	/* We can (hrmpfsfs?) assume that is CM itself who made this call */
+    	public void menuItemSelected(ConsoleMenuEvent e) {
+			String itemTitle = e.getMenuItemTitle();
+			String menuTitle = e.getMenuTitle();
+			//	System.out.println("INTERNAL PRESS" + itemTitle + " " + menuTitle);
+			String savedPreMenu = preMenu;
+			if (preMenu.equals("")) {
+	    		preMenu = menuTitle;
+			} else {
+	    		preMenu = preMenu + "->" + menuTitle;
+			}
+			levels++;
+			run();
+			levels--;
+			preMenu = savedPreMenu;
+    	}
     
 
     /**

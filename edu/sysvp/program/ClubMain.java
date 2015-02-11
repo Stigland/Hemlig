@@ -31,6 +31,10 @@ public class ClubMain {
 	ClubHelper ch = new ClubHelper();
 	ch.menuChoice();
 
+	Menu menu = new Menu(ch);
+	menu.run();
+
+
 	
 	  // System.out.println(" ... let's assume user wanted to print teams");
 	  // ch.printTeams();
@@ -52,7 +56,7 @@ public class ClubMain {
 	cm.cr.storeMembers();
 	*/
 
-	ch.printMembers("%Karl%");
+	ch.printMembers();
 	ch.printTeams();
 
 	ch.printTeamMembers("F01");
