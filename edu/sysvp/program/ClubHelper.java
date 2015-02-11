@@ -3,6 +3,7 @@ package edu.sysvp.program;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.io.Console;
+import java.util.Scanner;
 
 import tig058.handin01.registry.ClubRegistry;
 import tig058.handin01.member.Member;
@@ -132,6 +133,62 @@ public class ClubHelper {
 	for (Member p: parents) {
 	    System.out.println(" * " + p);
 	}
+    }
+
+    public void menuChoice(){
+
+	System.out.println("Choose an option");
+	System.out.println("1. List all members by family name");
+	System.out.println("2. List all members by first name");
+	System.out.println("3. List all members by ID");
+	System.out.println("4. List all members by team");
+	System.out.println("5. List all members of a specific team");
+	System.out.println("6. List all parents of a specific team");
+	System.out.println("7. List all e-mail adresses of a member");
+	System.out.println(">");
+
+	Scanner sc = new Scanner(System.in);
+
+	boolean validChoice = false;
+
+	//Below will restart loop uless condition validChoice is met and set to true.
+	while(!validChoice){
+
+	int s = sc.nextInt();
+
+    	if (s == 1){
+
+    		validChoice = true;
+    	}
+    	else if (s == 2){
+
+    		validChoice = true;
+    	}
+    	else if (s == 3){
+    	
+    		validChoice = true;
+    	}
+    	else if (s == 4){
+    	
+    		validChoice = true;
+    	}
+    	else if (s == 5){
+    	
+    		validChoice = true;
+    	}
+    	else if (s == 6){
+    		
+    		validChoice = true;
+    	}
+    	else if (s == 7){
+    		
+    		validChoice = true;
+    	}
+    	else{
+
+    	}
+
+    }
     }
 
     

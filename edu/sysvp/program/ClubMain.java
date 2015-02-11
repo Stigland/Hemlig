@@ -28,16 +28,9 @@ public class ClubMain {
 	System.out.println(" -----=====================-----");
 
 	//	Logger.setDebugLevel();
-	Scanner sc = new Scanner(System.in);
 	ClubHelper ch = new ClubHelper();
-	System.out.println("Choose an option");
-	System.out.println("1. List all members by family name");
-	System.out.println("2. List all members by first name");
-	System.out.println("3. List all members by ID");
-	System.out.println("4. List all members by team");
-	System.out.println("5. List all members of a specific team");
-	System.out.println("6. List all parents of a specific team");
-	System.out.println("7. List all e-mail adresses of a member");
+	ch.menuChoice();
+
 	
 	  // System.out.println(" ... let's assume user wanted to print teams");
 	  // ch.printTeams();
