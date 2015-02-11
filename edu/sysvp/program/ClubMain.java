@@ -29,7 +29,7 @@ public class ClubMain {
 
 	//	Logger.setDebugLevel();
 	ClubHelper ch = new ClubHelper();
-	ch.menuChoice();
+	//ch.menuChoice();
 
 	Menu menu = new Menu(ch);
 	menu.run();
@@ -56,18 +56,18 @@ public class ClubMain {
 	cm.cr.storeMembers();
 	*/
 
-	ch.printMembers();
-	ch.printTeams();
+	//ch.printMembers();
+	//ch.printTeams();
 
-	ch.printTeamMembers("F01");
-	ch.printTeamMembers("D");
-	ch.printParents(1016);
-	ch.printParents(1017);
+	//ch.printTeamMembers("F01");
+	//ch.printTeamMembers("D");
+	//ch.printParents(1016);
+	//ch.printParents(1017);
 
-	ch.emailMember(1010);
-	ch.emailMember(1016);
-	ch.emailMember(1017);
-	ch.emailMember(1018);
+	//ch.emailMember(1010);
+	//ch.emailMember(1016);
+	//ch.emailMember(1017);
+	//ch.emailMember(1018);
     }
 
 }
