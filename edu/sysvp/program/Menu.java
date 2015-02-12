@@ -41,7 +41,7 @@ public class Menu {
 
 	menu.addMenuItem(new MenuItem(){
 		public void menuItemSelected(ConsoleMenuEvent e) { 
-		    ch.printMembersAlpha(); } 
+		    ch.printSpecificTeam(); } 
 	    },"List all members of a specific team" );
 
 	menu.addMenuItem(new MenuItem(){

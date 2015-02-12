@@ -4,12 +4,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.io.Console;
 import java.util.Scanner;
+import java.util.Scanner;
 
 import tig058.handin01.registry.ClubRegistry;
 import tig058.handin01.member.Member;
 import tig058.handin01.member.MemberAlphaComparator;
 import tig058.handin01.member.MemberAlphaFirstnameComparator;
 import tig058.handin01.log.Logger;
+
+import com.sandklef.edu.ConsoleMenu.*;
 
 public class ClubHelper {
 
@@ -147,62 +150,26 @@ public class ClubHelper {
 	}
     }
 
-    public void menuChoice(){
+    public void printSpecificTeam(){
 
-	System.out.println("Choose an option");
-	System.out.println("1. List all members by family name");
-	System.out.println("2. List all members by first name");
-	System.out.println("3. List all members by ID");
-	System.out.println("4. List all members by team");
-	System.out.println("5. List all members of a specific team");
-	System.out.println("6. List all parents of a specific team");
-	System.out.println("7. List all e-mail adresses of a member");
-	System.out.println(">");
+    	Scanner sc = new Scanner(System.in);
+    	System.out.println("Which of the following available teams would you like to print out?");
+    	System.out.println("Girls: F94, F97, F01, F03, F04, F07");
+    	System.out.println("Boys: P94, P95, P97, P98, P00, P01, P04, P05, P06, P07");
 
-	Scanner sc = new Scanner(System.in);
+    	String answer = sc.nextLine();
 
-	boolean validChoice = false;
+    	Logger.debugM();
+		ArrayList<Member> members = cr.getMembers();
+		Collections.sort(members, new MemberAlphaComparator());
 
-	//Below will restart loop uless condition validChoice is met and set to true.
-	while(!validChoice){
-
-	int s = sc.nextInt();
-
-    	if (s == 1){
-
-    		validChoice = true;
-    	}
-    	else if (s == 2){
-
-    		validChoice = true;
-    	}
-    	else if (s == 3){
-    	
-    		validChoice = true;
-    	}
-    	else if (s == 4){
-    	
-    		validChoice = true;
-    	}
-    	else if (s == 5){
-    	
-    		validChoice = true;
-    	}
-    	else if (s == 6){
-    		
-    		validChoice = true;
-    	}
-    	else if (s == 7){
-    		
-    		validChoice = true;
-    	}
-    	else{
-
+    	for (Member m: members){
+    		String memberTeam = m.getTeam();
+    		if (memberTeam.equalsIgnoreCase(answer)){
+    			System.out.println(m);
+    		}
     	}
 
     }
-    }
+}    
 
-    
-
-}
