@@ -38,6 +38,18 @@ public class ClubHelper {
 	System.out.println("");
     }
 
+    public void printMembersByTeam() {
+	Logger.debugM();
+	ArrayList<Member> members = 
+	    cr.getMembers();
+	Collections.sort(members, new MemberAlphaComparator2());
+
+	System.out.println("Members:");
+	for (Member m: members) {
+	    System.out.println(m);
+	}
+    }
+
     public void printMembers() {
 	Logger.debugM();
 	ArrayList<Member> members = 

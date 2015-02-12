@@ -31,12 +31,12 @@ public class Menu {
 
 	menu.addMenuItem(new MenuItem(){
 		public void menuItemSelected(ConsoleMenuEvent e) { 
-		    ch.printMembersAlpha(); } 
+		    ch.printMembers(); } 
 	    },"List all members by ID" );
 
 	menu.addMenuItem(new MenuItem(){
 		public void menuItemSelected(ConsoleMenuEvent e) { 
-		    ch.printMembersAlpha(); } 
+		    ch.printMembersByTeam(); } 
 	    },"List all members by team" );
 
 	menu.addMenuItem(new MenuItem(){
