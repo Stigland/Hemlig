@@ -159,7 +159,10 @@ public class ClubHelper {
 			System.out.println(" * " + p);
 		}
     }
-
+	
+	//Prints out all members of a specific team, choosen by input from the Scanner sc. It does this 
+	//by searching the member-list in a for-each-loop and excluding members not belonging to the
+	//specified team.
     public void printSpecificTeam(){
 
     	Scanner sc = new Scanner(System.in);
@@ -181,7 +184,9 @@ public class ClubHelper {
     	}
 
     }
-
+    //Prints out all parents of a specified team, choosen by input from the Scanner sc.
+    //It prints the entire Arraylist, excluding those who do not meet the conditions set, in this case
+    //matching the inputted team and matching the boolean isParent.
     public void printSpecificTeamParents(){
 
     	Scanner sc = new Scanner(System.in);
@@ -204,6 +209,15 @@ public class ClubHelper {
     	}
 
     }
+
+
+    //Prints e-mail of a specific player, searched for by name according to input to the Scanner sc. 
+    //The search may display several players if several players match the inputted name.
+
+    //If the member is not 18 years old the e-mails and names of the parents are printed instead.
+    //The method first tests the age of the member and should it be under 18 the method gathers
+    //the parents IDs from the member-object. It then declares an ArrayList of the parents and 
+    //prints their names and e-mails without discrimination.
 
     public void printEmail(){
 

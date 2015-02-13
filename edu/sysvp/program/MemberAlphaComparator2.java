@@ -8,7 +8,7 @@ import tig058.handin01.log.Logger;
 
 import java.util.*;
 /**
- *
+ *Comparator to sort members lexically by team, for use in the class ClubHelper.
  */
 public class MemberAlphaComparator2 implements Comparator<Member>{
 
