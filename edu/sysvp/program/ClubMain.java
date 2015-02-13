@@ -34,40 +34,6 @@ public class ClubMain {
 	Menu menu = new Menu(ch);
 	menu.run();
 
-
-	
-	  // System.out.println(" ... let's assume user wanted to print teams");
-	  // ch.printTeams();
-	  //   System.out.println(" ... let's assume user wanted to print members");
-	  // ch.printMembers();
-	  /*
-	    System.out.println(" ... let's assume user wanted to print members in alpha order");
-	    ch.printMembersAlpha();
-	  System.out.println(" ... let's assume user wanted to print members in alpha order on given name");
-	  ch.printMembersAlphaFirstName();
-	*/
-	
-	
-	/*
-	ArrayList<Member> members = cm.cr.getMembers();
-	System.out.println(" ... size: " + members.size());
-	members.remove(10);
-	System.out.println(" ... size: " + members.size());
-	cm.cr.storeMembers();
-	*/
-
-	//ch.printMembers();
-	//ch.printTeams();
-
-	//ch.printTeamMembers("F01");
-	//ch.printTeamMembers("D");
-	//ch.printParents(1016);
-	//ch.printParents(1017);
-
-	//ch.emailMember(1010);
-	//ch.emailMember(1016);
-	//ch.emailMember(1017);
-	//ch.emailMember(1018);
     }
 
 }

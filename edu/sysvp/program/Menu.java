@@ -31,7 +31,7 @@ public class Menu {
 
 	menu.addMenuItem(new MenuItem(){
 		public void menuItemSelected(ConsoleMenuEvent e) { 
-		    ch.printMembers(); } 
+		    ch.printMembersById(); } 
 	    },"List all members by ID" );
 
 	menu.addMenuItem(new MenuItem(){
@@ -46,12 +46,12 @@ public class Menu {
 
 	menu.addMenuItem(new MenuItem(){
 		public void menuItemSelected(ConsoleMenuEvent e) { 
-		    ch.printMembersAlpha(); } 
+		    ch.printSpecificTeamParents(); } 
 	    },"List all parents of a specific team" );
 
 	menu.addMenuItem(new MenuItem(){
 		public void menuItemSelected(ConsoleMenuEvent e) { 
-		    ch.printMembersAlpha(); } 
+		    ch.printEmail(); } 
 	    },"List all e-mail adresses of a member" );
 
 

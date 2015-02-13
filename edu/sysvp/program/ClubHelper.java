@@ -75,6 +75,19 @@ public class ClubHelper {
 	}
     }
 
+    public void printMembersById() {
+	Logger.debugM();
+	ArrayList<Member> members = 
+	    cr.getMembers();
+	Collections.sort(members, new IDcomparator());
+
+	System.out.println("Members:");
+	for (Member m: members) {
+	    System.out.println(m);
+	}
+    }
+
+
     public void printMembersAlphaFirstName() {
 	Logger.debugM();
 	ArrayList<Member> members = cr.getMembers();
@@ -154,8 +167,8 @@ public class ClubHelper {
 
     	Scanner sc = new Scanner(System.in);
     	System.out.println("Which of the following available teams would you like to print out?");
-    	System.out.println("Girls: F94, F97, F01, F03, F04, F07");
-    	System.out.println("Boys: P94, P95, P97, P98, P00, P01, P04, P05, P06, P07");
+    	System.out.println("Girls: D, F94, F97, F01, F03, F04, F07");
+    	System.out.println("Boys: H, P94, P95, P97, P98, P00, P01, P04, P05, P06, P07");
 
     	String answer = sc.nextLine();
 
@@ -171,5 +184,59 @@ public class ClubHelper {
     	}
 
     }
-}    
+
+    public void printSpecificTeamParents(){
+
+    	Scanner sc = new Scanner(System.in);
+    	System.out.println("Which of the following available teams would you like to print out the parents of?");
+    	System.out.println("Girls: D, F94, F97, F01, F03, F04, F07");
+    	System.out.println("Boys: H, P94, P95, P97, P98, P00, P01, P04, P05, P06, P07");
+
+    	String answer = sc.nextLine();
+
+    	Logger.debugM();
+		ArrayList<Member> members = cr.getMembers();
+		Collections.sort(members, new MemberAlphaComparator());
+
+    	for (Member m: members){
+    		String memberTeam = m.getTeam();
+    		boolean memberIsParent = m.isParent();
+    		if (memberTeam.equalsIgnoreCase(answer) && memberIsParent){
+    			System.out.println(m);
+    		}
+    	}
+
+    }
+
+    public void printEmail(){
+
+    	Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the name of the member");
+    	System.out.println();
+
+    	String answer = sc.nextLine();
+
+    	Logger.debugM();
+		ArrayList<Member> members = cr.getMembers(answer);
+		ArrayList<Member> parentList;
+		Collections.sort(members, new MemberAlphaComparator());
+	
+    	for (Member m: members){
+			if (m.getAgeThisYear() < 18){
+				int ID = m.getId();
+				parentList = cr.getParents(ID);
+				System.out.println(m.getName() + " - parents: ");
+				for (Member p : parentList){
+					System.out.println(p.getName() + " - e-mail: " + p.getEmail());
+				}
+			}
+			else{
+    			System.out.println(m.getName() + " - e-mail: " + m.getEmail());
+			}
+    	}
+    }
+
+    }
+
+
 

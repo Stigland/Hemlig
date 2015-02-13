@@ -10,9 +10,9 @@ import java.util.*;
 /**
  *
  */
-public class MemberAlphaComparator2 implements Comparator<Member>{
+public class IDcomparator implements Comparator<Member>{
 
     public int compare(Member s1, Member s2){
-	    return s1.getTeam().compareTo(s2.getTeam());
+	    return Integer.compare(s1.getId(), s2.getId());
     }
 }
