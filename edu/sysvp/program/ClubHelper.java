@@ -19,148 +19,145 @@ public class ClubHelper {
     private ClubRegistry cr;
 
     public ClubHelper() {
-	Logger.debug("Init system");
-	cr = ClubRegistry.getInstance();
+		Logger.debug("Init system");
+		cr = ClubRegistry.getInstance();
     }
 
     public String askUser(String s) {
-	Console console = System.console();
-	String input = console.readLine(s);
-	return input;
+		Console console = System.console();
+		String input = console.readLine(s);
+		return input;
     }
 
     public void printTeams() {
-	Logger.debugM();
-	ArrayList<String> teams = 
-	    cr.getTeams();
+		Logger.debugM();
+		ArrayList<String> teams = cr.getTeams();
 	
-	System.out.print("Teams: ");
-	for (String team: teams) {
-	    System.out.print(team + " ");
-	}
-	System.out.println("");
+		System.out.print("Teams: ");
+		for (String team: teams) {
+			System.out.print(team + " ");
+		}
+		System.out.println("");
     }
 
     public void printMembersByTeam() {
-	Logger.debugM();
-	ArrayList<Member> members = 
+		Logger.debugM();
+		ArrayList<Member> members = 
 	    cr.getMembers();
-	Collections.sort(members, new MemberAlphaComparator2());
+		Collections.sort(members, new MemberAlphaComparator2());
 
-	System.out.println("Members:");
-	for (Member m: members) {
-	    System.out.println(m);
-	}
+		System.out.println("Members:");
+		for (Member m: members) {
+			System.out.println(m);
+		}
     }
 
     public void printMembers() {
-	Logger.debugM();
-	ArrayList<Member> members = 
-	    cr.getMembers();
-	System.out.println("Members:");
-	for (Member m: members) {
-	    System.out.println(m);
-	}
+		Logger.debugM();
+		ArrayList<Member> members = cr.getMembers();
+		System.out.println("Members:");
+		for (Member m: members) {
+			System.out.println(m);
+		}
     }
 
     public void printMembersAlpha() {
-	Logger.debugM();
-	ArrayList<Member> members = 
-	    cr.getMembers();
-	Collections.sort(members, new MemberAlphaComparator());
+		Logger.debugM();
+		ArrayList<Member> members = cr.getMembers();
+		Collections.sort(members, new MemberAlphaComparator());
 
-	System.out.println("Members:");
-	for (Member m: members) {
-	    System.out.println(m);
-	}
+		System.out.println("Members:");
+		for (Member m: members) {
+			System.out.println(m);
+		}
     }
 
     public void printMembersById() {
-	Logger.debugM();
-	ArrayList<Member> members = 
-	    cr.getMembers();
-	Collections.sort(members, new IDcomparator());
+		Logger.debugM();
+		ArrayList<Member> members = cr.getMembers();
+		Collections.sort(members, new IDcomparator());
 
-	System.out.println("Members:");
-	for (Member m: members) {
-	    System.out.println(m);
-	}
+		System.out.println("Members:");
+		for (Member m: members) {
+			System.out.println(m);
+		}
     }
 
 
     public void printMembersAlphaFirstName() {
-	Logger.debugM();
-	ArrayList<Member> members = cr.getMembers();
-	Collections.sort(members, new MemberAlphaFirstnameComparator());
+		Logger.debugM();
+		ArrayList<Member> members = cr.getMembers();
+		Collections.sort(members, new MemberAlphaFirstnameComparator());
 
-	System.out.println("Members:");
-	for (Member m: members) {
-	    System.out.println(m);
-	}
+		System.out.println("Members:");
+		for (Member m: members) {
+			System.out.println(m);
+		}
     }
 
     public void printMembers(String s) {
-	Logger.debugM();
-	ArrayList<Member> members = cr.getMembers(s);
-	Collections.sort(members, new MemberAlphaComparator());
+		Logger.debugM();
+		ArrayList<Member> members = cr.getMembers(s);
+		Collections.sort(members, new MemberAlphaComparator());
 
-	System.out.println("Members:");
-	for (Member m: members) {
-	    System.out.println(m);
-	}
+		System.out.println("Members:");
+		for (Member m: members) {
+			System.out.println(m);
+		}
     }
 
     public void printTeamMembers(String team) {
-	Logger.debugM();
-	ArrayList<Member> members = cr.getTeamMembers(team);
-	Collections.sort(members, new MemberAlphaComparator());
+		Logger.debugM();
+		ArrayList<Member> members = cr.getTeamMembers(team);
+		Collections.sort(members, new MemberAlphaComparator());
 
-	System.out.println("Members in " + team + ":");
-	for (Member m: members) {
-	    System.out.println(m);
-	}
+		System.out.println("Members in " + team + ":");
+		for (Member m: members) {
+			System.out.println(m);
+		}
     }
 
 
     public void emailMember(int id) {
-	Member m = cr.getMember(id);
-	if (m==null) { return ; }
+		Member m = cr.getMember(id);
+		if (m==null) { return ; }
 	
-	emailMember(m);
+		emailMember(m);
     }
+	
     public void emailMember(Member m) {
-	Logger.debugM();
+		Logger.debugM();
 
-	ArrayList<Member> parents = cr.getAdults(m);
+		ArrayList<Member> parents = cr.getAdults(m);
 
-	System.out.print("Email to " + m.getName() + "");
-	if (parents==null || parents.size()==0) { 
-	    System.out.println("<" + m.getEmail() + ">"); 
-	} else {
-	    System.out.println(" via parents:");
-	    for (Member p: parents) {
-		System.out.println(" * " + p.getName() + "<" + p.getEmail() + ">");
-	    }
-	}
+		System.out.print("Email to " + m.getName() + "");
+		if (parents==null || parents.size()==0) { 
+			System.out.println("<" + m.getEmail() + ">"); 
+		}else{
+			System.out.println(" via parents:");
+			for (Member p: parents) {
+			System.out.println(" * " + p.getName() + "<" + p.getEmail() + ">");
+			}
+		}
     }
 
     public void printParents(int id) {
-	Member m = cr.getMember(id);
-	if (m==null) { return ; }
+		Member m = cr.getMember(id);
+		if (m==null) { return ; }
 	
-	printParents(m);
+		printParents(m);
     }
 
     public void printParents(Member m) {
-	Logger.debugM();
+		Logger.debugM();
 
-	ArrayList<Member> parents = cr.getParents(m);
-	System.out.println("Parents to " + m.getName() + ":");
-	if (parents==null || parents.size()==0) { System.out.println(" * <none>"); return ; }
+		ArrayList<Member> parents = cr.getParents(m);
+		System.out.println("Parents to " + m.getName() + ":");
+		if (parents==null || parents.size()==0) { System.out.println(" * <none>"); return ; }
 	
-	for (Member p: parents) {
-	    System.out.println(" * " + p);
-	}
+		for (Member p: parents) {
+			System.out.println(" * " + p);
+		}
     }
 
     public void printSpecificTeam(){
@@ -229,14 +226,13 @@ public class ClubHelper {
 				for (Member p : parentList){
 					System.out.println(p.getName() + " - e-mail: " + p.getEmail());
 				}
-			}
-			else{
+			}else{
     			System.out.println(m.getName() + " - e-mail: " + m.getEmail());
 			}
     	}
     }
 
-    }
+}
 
 
 
