@@ -248,11 +248,9 @@ public class ClubHelper {
     	}
     }
 	
-	// 	Checks if there are any arguments to start the program with		
-	//	If the instruction is "--members" or "--m", 
-	//	all members will be printed
-	//	and the program exits.
-	//	If the istruction is "--teams" or "--t", it will instead print all the teams.
+/*	Checks if there are any arguments to start the program with
+	If the instruction is "--members" or "--m", all members will be printed and the program exits.
+	If the istruction is "--teams" or "--t", it will instead print all the teams. */
 	
 	public void startProgram(String s){
 			if (s.equalsIgnoreCase("--members") == true || 							
@@ -263,6 +261,16 @@ public class ClubHelper {
 											s.equalsIgnoreCase("--t") == true){			
 				printTeams();	
 				System.exit(1);		
+			}else if(s.equalsIgnoreCase("--teams") == true && 							
+											s.equalsIgnoreCase("--members") == true){
+				printMembers();
+				printTeams();
+				System.exit(1);
+			}else if(s.equalsIgnoreCase("--t") == true && 							
+											s.equalsIgnoreCase("--m") == true){
+				printMembers();
+				printTeams();
+				System.exit(1);
 			}
 	}
 }
