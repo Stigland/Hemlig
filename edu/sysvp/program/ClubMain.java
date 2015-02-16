@@ -35,7 +35,7 @@ public class ClubMain {
 		System.out.println("        "+date);
 		System.out.println(" -----=====================-----");
 			
-		// Logger.setDebugLevel();
+		Logger.setDebugLevel();
 		// ch.menuChoice();
 		
 		menu.run();
@@ -49,26 +49,5 @@ public class ClubMain {
 			System.out.println(s + propValue );
 		}
 	}
-<<<<<<< Updated upstream
 }
-=======
-    }
 
-    public static void main(String[] args) {
-	System.out.println(" -----===< Club Manager >===-----");
-	printProp("  User:       ", "user.name");
-	printProp("  OS arch:    ", "os.arch");
-	printProp("  OS name:    ", "os.name");
-	printProp("  OS version: ", "os.version");
-	System.out.println(" -----=====================-----");
-
-	//	Logger.setDebugLevel();
-	ClubHelper ch = new ClubHelper();
-
-	Menu menu = new Menu(ch);
-	menu.run();
-
-    }
-
-}
->>>>>>> Stashed changes
