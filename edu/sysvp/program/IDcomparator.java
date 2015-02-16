@@ -9,6 +9,8 @@ import tig058.handin01.log.Logger;
 import java.util.*;
 /**
  *Comparator to sort members by ID, for use in the class ClubHelper.
+ *
+ *@return comparative value of s1 in comparison to s2.
  */
 public class IDcomparator implements Comparator<Member>{
 
