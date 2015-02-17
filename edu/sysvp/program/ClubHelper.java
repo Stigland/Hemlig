@@ -200,13 +200,9 @@ public class ClubHelper {
     
 	
 	/** 
-	 * Prints e-mail of a specific player, searched for by name according to input to the Scanner sc. 
-	 * The search may display several players if several players match the input.
-	 * 
-     * If the member is not 18 years old the e-mails and names of the parents are printed instead.
-     * The method first tests the age of the member and should it be under 18 the method gathers
-     * the parents IDs from the Member-object. It then declares an ArrayList of the parents and 
-     * prints their names and e-mails without discrimination. 
+	 * Prints out all parents of a specific team, chosen by input from the Scanner sc. It does this 
+	 * by searching the member-list in a for-each-loop and excluding members not belonging to the
+	 * specified team. 
 	 */
 
 	public void printSpecificTeamParents(){
@@ -242,13 +238,13 @@ public class ClubHelper {
 
 
 	/** 
-	 * Checks if there are any arguments to start the program with.
-	 * If the instruction is "--members" or "--m", all members will be printed and the program exits.
-	 * If the instruction is "--teams" or "--t", it will instead print all the teams. The option to send both
-	 * arguments will do both actions and then terminate the program. 
-	 *  
-	 * @param s - the argument determining what instruction the program will take
+	 * Prints e-mail of a specific player, searched for by name according to input to the Scanner sc. 
+	 * The search may display several players if several players match the input.
 	 * 
+     * If the member is not 18 years old the e-mails and names of the parents are printed instead.
+     * The method first tests the age of the member and should it be under 18 the method gathers
+     * the parents IDs from the Member-object. It then declares an ArrayList of the parents and 
+     * prints their names and e-mails without discrimination. 
 	 */
     public void printEmail(){
 
@@ -305,8 +301,8 @@ public class ClubHelper {
   	 * 
   	 * Pretty much the same as above, but with two parameters for multiple actions, quite possibly obsolete :) 
   	 * 
-  	 * @param s - the argument determining what instruction the program will take
-  	 * @param t - the argument determining what instruction the program will take
+  	 * @param String s - the argument determining what instruction the program will take
+  	 * @param String t - the argument determining what instruction the program will take
   	 * 
   	 */
 	
