@@ -19,9 +19,11 @@ public class ClubMain {
 		ClubHelper ch = new ClubHelper();
 		Menu menu = new Menu(ch);
 		
-		if (args.length > 0){
-			ch.startProgram(args[0]);
-		}else{	
+		if (args.length == 1){
+   			ch.startProgram(args[0]);
+  		}else if(args.length == 2){
+   			ch.startProgram(args[0], args[1]);
+  		}else{
 	
 		Date today = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy HH:mm");
@@ -35,7 +37,7 @@ public class ClubMain {
 		System.out.println("        "+date);
 		System.out.println(" -----=====================-----");
 			
-		Logger.setDebugLevel();
+		Logger.setInfoLevel();
 		// ch.menuChoice();
 		
 		menu.run();
