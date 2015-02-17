@@ -47,9 +47,11 @@ public class ClubHelper {
 	    cr.getMembers();
 		Collections.sort(members, new MemberAlphaComparator2());
 
-		System.out.println("Members:");
+		System.out.println("Listing all members by team:");
+		System.out.println("Name:               ");
+		System.out.println("Team:   ");
 		for (Member m: members) {
-			System.out.println(m);
+			System.out.printf("%-20s %-5s\n", m.getName(), m.getTeam());
 		}
     }
 
@@ -90,16 +92,17 @@ public class ClubHelper {
 			System.out.printf("%-20s %-5d\n", m.getName(), m.getId());
 		}
     }
-
-
+	/**
+	 * Small changes to the println-statement for a nicer print!
+	 */
     public void printMembersAlphaFirstName() {
 		Logger.debugM();
 		ArrayList<Member> members = cr.getMembers();
 		Collections.sort(members, new MemberAlphaFirstnameComparator());
 
-		System.out.println("Members:");
+		System.out.println("Listing all members by first name:");
 		for (Member m: members) {
-			System.out.println(m);
+			System.out.println(m.getName());
 		}
     }
 
@@ -258,29 +261,32 @@ public class ClubHelper {
     	Logger.debugM();
 		ArrayList<Member> members = cr.getMembers(answer);
 		ArrayList<Member> parentList;
-		Collections.sort(members, new MemberAlphaComparator());
 		Collections.sort(members, new MemberAlphaAndParentComparator());
-	
+		
+		System.out.println("\nListing the e-mail addresses of all members:");
+		System.out.print("\nName:               ");
+		System.out.println("E-mail:");
+		
     	for (Member m: members){
 			if (m.getAgeThisYear() < 18){
 				int ID = m.getId();
 				parentList = cr.getParents(ID);
-				System.out.println(m.getName() + " - parents: ");
+				System.out.printf("%s is underage, their parents are:\n", m.getName());
 				for (Member p : parentList){
-					System.out.println(p.getName() + " - e-mail: " + p.getEmail());
+					System.out.printf("%-20s %s \n", p.getName(), p.getEmail());
 				}
 				System.out.println();
 			}else{
-    			System.out.println(m.getName() + " - e-mail: " + m.getEmail());
-    			System.out.println();
+    			System.out.printf("%-20s %s\n", m.getName(), m.getEmail());
+				System.out.println();
 			}
     	}
-    }
+	}
 
 
 
 	/**
-	 *	Checks if there are any arguments to start the program with
+	 * Checks if there are any arguments to start the program with
 	 * If the instruction is "--members" or "--m", all members will be printed and the program exits.
 	 * If the istruction is "--teams" or "--t", it will instead print all the teams. 
 	 */
