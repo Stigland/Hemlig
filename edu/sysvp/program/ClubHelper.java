@@ -296,14 +296,14 @@ public class ClubHelper {
 	 * If the instruction is "--teams" or "--t", it will instead print all the teams. The option to send both
 	 * arguments will do both actions and then terminate the program. 
 	 *  
-	 * @param s - the argument determining what instruction the program will take
+	 * @param command - the argument determining what instruction the program will take
 	 * 
 	 */
-	public void startProgram(String s){
-  		if (s.equalsIgnoreCase("--members") || s.equalsIgnoreCase("--m")){   
+	public void startProgram(String command){
+  		if (command.equalsIgnoreCase("--members") || command.equalsIgnoreCase("--m")){   
    			printMembers();               
    			System.exit(0);                
-  		}else if(s.equalsIgnoreCase("--teams") || s.equalsIgnoreCase("--t")){   
+  		}else if(command.equalsIgnoreCase("--teams") || command.equalsIgnoreCase("--t")){   
    			printTeams(); 
    			System.exit(0);  
   		}
@@ -313,24 +313,24 @@ public class ClubHelper {
   	 * 
   	 * Pretty much the same as above, but with two parameters for multiple actions, quite possibly obsolete :) 
   	 * 
-  	 * @param 	s	 the argument determining what instruction the program will take
-  	 * @param 	t	 the argument determining what instruction the program will take
+  	 * @param 	command1	 the argument determining what instruction the program will take
+  	 * @param 	command2	 the argument determining what instruction the program will take
   	 * 
   	 */
-	public void startProgram(String s, String t){
-  		if(s.equalsIgnoreCase("--teams") && t.equalsIgnoreCase("--members")){
+	public void startProgram(String command1, String command2){
+  		if(command1.equalsIgnoreCase("--teams") && command2.equalsIgnoreCase("--members")){
    			printTeams();
    			printMembers();
    			System.exit(0);
-  		}else if(s.equalsIgnoreCase("--t") && t.equalsIgnoreCase("--m")){
+  		}else if(command1.equalsIgnoreCase("--t") && command2.equalsIgnoreCase("--m")){
    			printTeams();
    			printMembers();
    			System.exit(0);
-  		}else if(t.equalsIgnoreCase("--teams") && s.equalsIgnoreCase("--members")){
+  		}else if(command2.equalsIgnoreCase("--teams") && command1.equalsIgnoreCase("--members")){
    			printMembers();
    			printTeams();
    			System.exit(0);
-  		}else if(t.equalsIgnoreCase("--t") && s.equalsIgnoreCase("--m")){
+  		}else if(command2.equalsIgnoreCase("--t") && command1.equalsIgnoreCase("--m")){
    			printMembers();
    			printTeams();
    			System.exit(0);
