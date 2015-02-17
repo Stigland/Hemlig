@@ -61,29 +61,33 @@ public class ClubHelper {
 			System.out.println(m);
 		}
     }
-
-    public void printMembersAlpha() {
+	/**
+	 * Small changes to the println-statement for a nicer print!
+	 */
+	public void printMembersAlpha() {
 		Logger.debugM();
 		ArrayList<Member> members = cr.getMembers();
 		Collections.sort(members, new MemberAlphaComparator());
 
-		System.out.println("Members:");
+		System.out.println("Listing all members by family name:");
 		for (Member m: members) {
-			System.out.println(m);
+			System.out.println(m.getName());
 		}
     }
 
- /**
-  * Sorts and prints members. This time it's by the ID.
-  */
+	/**
+	 * Sorts and prints members. This time it's by the ID.
+	 */
     public void printMembersById() {
 		Logger.debugM();
 		ArrayList<Member> members = cr.getMembers();
 		Collections.sort(members, new IDcomparator());
 
-		System.out.println("Members:");
+		System.out.println("Listing all members by ID:");
+		System.out.print("Name:                ");
+		System.out.print("ID:     ");
 		for (Member m: members) {
-			System.out.println(m);
+			System.out.printf("%-20s %-5d\n", m.getName(), m.getId());
 		}
     }
 
@@ -164,11 +168,11 @@ public class ClubHelper {
 		}
     }
 	
- /** 
-  * Prints out all members of a specific team, chosen by input from the Scanner sc. It does this 
-  * by searching the member-list in a for-each-loop and excluding members not belonging to the
-  * specified team. 
-  */
+	/** 
+	 * Prints out all members of a specific team, chosen by input from the Scanner sc. It does this 
+	 * by searching the member-list in a for-each-loop and excluding members not belonging to the
+	 * specified team. 
+	 */
     public void printSpecificTeam(){
 
     	
@@ -182,26 +186,25 @@ public class ClubHelper {
 		ArrayList<Member> members = cr.getMembers();
 		Collections.sort(members, new MemberAlphaComparator());
 		System.out.println("Players in the team: " + answer);
-		System.out.print("Name:                \n");
     	for (Member m: members){
     		String memberTeam = m.getTeam();
     		if (memberTeam.equalsIgnoreCase(answer)){
-    			System.out.printf("%-20s \n", m.getName());
+    			System.out.println(m.getName());
     		}
     	}
 
     }
     
 	
- /** 
-  * Prints e-mail of a specific player, searched for by name according to input to the Scanner sc. 
-  * The search may display several players if several players match the input.
-  * 
+	/** 
+	 * Prints e-mail of a specific player, searched for by name according to input to the Scanner sc. 
+	 * The search may display several players if several players match the input.
+	 * 
      * If the member is not 18 years old the e-mails and names of the parents are printed instead.
      * The method first tests the age of the member and should it be under 18 the method gathers
      * the parents IDs from the Member-object. It then declares an ArrayList of the parents and 
      * prints their names and e-mails without discrimination. 
-  */
+	 */
 
 	public void printSpecificTeamParents(){
 
@@ -235,15 +238,15 @@ public class ClubHelper {
     }
 
 
- /** 
-  * Checks if there are any arguments to start the program with.
-  * If the instruction is "--members" or "--m", all members will be printed and the program exits.
-  * If the instruction is "--teams" or "--t", it will instead print all the teams. The option to send both
-  * arguments will do both actions and then terminate the program. 
-  *  
-  * @param s - the argument determining what instruction the program will take
-  * 
-  */
+	/** 
+	 * Checks if there are any arguments to start the program with.
+	 * If the instruction is "--members" or "--m", all members will be printed and the program exits.
+	 * If the instruction is "--teams" or "--t", it will instead print all the teams. The option to send both
+	 * arguments will do both actions and then terminate the program. 
+	 *  
+	 * @param s - the argument determining what instruction the program will take
+	 * 
+	 */
     public void printEmail(){
 
 		System.out.println("Enter the name of the member");
@@ -276,10 +279,11 @@ public class ClubHelper {
 
 
 
-	/**	Checks if there are any arguments to start the program with
-	If the instruction is "--members" or "--m", all members will be printed and the program exits.
-	If the istruction is "--teams" or "--t", it will instead print all the teams. */
-
+	/**
+	 *	Checks if there are any arguments to start the program with
+	 * If the instruction is "--members" or "--m", all members will be printed and the program exits.
+	 * If the istruction is "--teams" or "--t", it will instead print all the teams. 
+	 */
 
 	public void startProgram(String s){
   		if (s.equalsIgnoreCase("--members") || s.equalsIgnoreCase("--m")){   
@@ -292,13 +296,13 @@ public class ClubHelper {
  	}
 
 	/** 
-  	* 
-  	* Pretty much the same as above, but with two parameters for multiple actions, quite possibly obsolete :) 
-  	* 
-  	* @param s - the argument determining what instruction the program will take
-  	* @param t - the argument determining what instruction the program will take
-  	* 
-  	*/
+  	 * 
+  	 * Pretty much the same as above, but with two parameters for multiple actions, quite possibly obsolete :) 
+  	 * 
+  	 * @param s - the argument determining what instruction the program will take
+  	 * @param t - the argument determining what instruction the program will take
+  	 * 
+  	 */
 	
 	public void startProgram(String s, String t){
   		if(s.equalsIgnoreCase("--teams") && t.equalsIgnoreCase("--members")){
@@ -319,7 +323,6 @@ public class ClubHelper {
    			System.exit(1);
   		}
  	}
-
 }
 
 
