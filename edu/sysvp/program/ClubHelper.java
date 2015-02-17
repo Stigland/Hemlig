@@ -219,7 +219,12 @@ public class ClubHelper {
     		String memberTeam = m.getTeam();
     		boolean memberIsParent = m.isParent();
     		if (memberTeam.equalsIgnoreCase(answer) && memberIsParent){
-    			System.out.println(m);
+    			System.out.println(m.getName() + " - is the parent of: ");
+    			ArrayList<Member> children = m.getChildren();
+    			for (Member c: children){
+    				System.out.println(c.getName() + " - " + c.getTeam());
+    			}
+    			System.out.println();
     		}
     	}
 
