@@ -264,8 +264,8 @@ public class ClubHelper {
 		Collections.sort(members, new MemberAlphaAndParentComparator());
 		
 		System.out.println("\nListing the e-mail addresses of all members:");
-		System.out.print("\nName:               ");
-		System.out.println("E-mail:");
+		System.out.print("\nName:                ");
+		System.out.println("E-mail:\n");
 		
     	for (Member m: members){
 			if (m.getAgeThisYear() < 18){
