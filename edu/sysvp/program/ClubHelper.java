@@ -216,6 +216,9 @@ public class ClubHelper {
 		ArrayList<Member> members = cr.getMembers();
 		Collections.sort(members, new MemberAlphaComparator());
 
+		System.out.println("Parents in the team: " + answer);
+		System.out.println();
+
     	for (Member m: members){
     		String memberTeam = m.getTeam();
     		boolean memberIsParent = m.isParent();
