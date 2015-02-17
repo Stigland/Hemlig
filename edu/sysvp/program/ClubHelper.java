@@ -181,11 +181,12 @@ public class ClubHelper {
     	Logger.debugM();
 		ArrayList<Member> members = cr.getMembers();
 		Collections.sort(members, new MemberAlphaComparator());
-
+		System.out.println("Players in the team: " + answer);
+		System.out.print("Name:                \n");
     	for (Member m: members){
     		String memberTeam = m.getTeam();
     		if (memberTeam.equalsIgnoreCase(answer)){
-    			System.out.println(m);
+    			System.out.printf("%-20s \n", m.getName());
     		}
     	}
 
