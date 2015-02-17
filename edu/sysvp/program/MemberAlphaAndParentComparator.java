@@ -8,18 +8,14 @@ import tig058.handin01.log.Logger;
 
 import java.util.*;
 /**
- *Comparator to sort members lexically by team, for use in the class ClubHelper.
+ *Comparator to sort members lexically by age, for use in the class ClubHelper.
  *
- *@return comparative value of s1 in comparison to s2.
+ *@return comparative value of s2 in comparison to s1.
  */
 public class MemberAlphaAndParentComparator implements Comparator<Member>{
 
     public int compare(Member s1, Member s2){
-    	if (s1.getParents() != null){
-    		return 100;
-    	}
-    	else{
-    		return -100;
+    	return s2.getAgeThisYear() - (s1.getAgeThisYear());
     	}
     }
-}
+
