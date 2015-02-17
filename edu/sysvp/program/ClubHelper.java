@@ -40,7 +40,9 @@ public class ClubHelper {
 		}
 		System.out.println("");
     }
-
+	/**
+	 * Changes to the println-statement for a nicer print! Prints using printf instead!
+	 */
     public void printMembersByTeam() {
 		Logger.debugM();
 		ArrayList<Member> members = 
@@ -54,24 +56,31 @@ public class ClubHelper {
 			System.out.printf("%-20s %-5s\n", m.getName(), m.getTeam());
 		}
     }
-
+	/**
+	 * Changes to the println-statement for a nicer print! Prints using printf instead!
+	 */
     public void printMembers() {
 		Logger.debugM();
 		ArrayList<Member> members = cr.getMembers();
-		System.out.println("Members:");
+		System.out.println("Listing all members:");
+		System.out.print("\nName:               ");
+		System.out.print("Team:");
+		System.out.print("ID:  ");
+		System.out.println("E-mail:\n");
 		for (Member m: members) {
-			System.out.println(m);
+			System.out.printf("%5d %-12s %-10s %5s %s\n", m.getId(), m.getFamilyName(), 
+										   m.getGivenName(), m.getTeam(), m.getEmail());
 		}
     }
 	/**
-	 * Small changes to the println-statement for a nicer print!
+	 * Changes to the println-statement for a nicer print!
 	 */
 	public void printMembersAlpha() {
 		Logger.debugM();
 		ArrayList<Member> members = cr.getMembers();
 		Collections.sort(members, new MemberAlphaComparator());
 
-		System.out.println("Listing all members by family name:");
+		System.out.println("Listing all members by family name:\n");
 		for (Member m: members) {
 			System.out.println(m.getName());
 		}
@@ -85,7 +94,7 @@ public class ClubHelper {
 		ArrayList<Member> members = cr.getMembers();
 		Collections.sort(members, new IDcomparator());
 
-		System.out.println("Listing all members by ID:");
+		System.out.println("Listing all members by ID:\n");
 		System.out.print("Name:                ");
 		System.out.print("ID:     ");
 		for (Member m: members) {
@@ -93,14 +102,14 @@ public class ClubHelper {
 		}
     }
 	/**
-	 * Small changes to the println-statement for a nicer print!
+	 * Changes to the println-statement for a nicer print! Prints using printf instead!
 	 */
     public void printMembersAlphaFirstName() {
 		Logger.debugM();
 		ArrayList<Member> members = cr.getMembers();
 		Collections.sort(members, new MemberAlphaFirstnameComparator());
 
-		System.out.println("Listing all members by first name:");
+		System.out.println("Listing all members by first name:\n");
 		for (Member m: members) {
 			System.out.println(m.getName());
 		}
@@ -147,7 +156,7 @@ public class ClubHelper {
 		}else{
 			System.out.println(" via parents:");
 			for (Member p: parents) {
-			System.out.println(" * " + p.getName() + "<" + p.getEmail() + ">");
+				System.out.println(" * " + p.getName() + "<" + p.getEmail() + ">");
 			}
 		}
     }
@@ -281,19 +290,22 @@ public class ClubHelper {
 
 
 
-	/**
-	 * Checks if there are any arguments to start the program with
+	/** 
+	 * Checks if there are any arguments to start the program with.
 	 * If the instruction is "--members" or "--m", all members will be printed and the program exits.
-	 * If the istruction is "--teams" or "--t", it will instead print all the teams. 
+	 * If the instruction is "--teams" or "--t", it will instead print all the teams. The option to send both
+	 * arguments will do both actions and then terminate the program. 
+	 *  
+	 * @param s - the argument determining what instruction the program will take
+	 * 
 	 */
-
 	public void startProgram(String s){
   		if (s.equalsIgnoreCase("--members") || s.equalsIgnoreCase("--m")){   
    			printMembers();               
-   			System.exit(1);                
+   			System.exit(0);                
   		}else if(s.equalsIgnoreCase("--teams") || s.equalsIgnoreCase("--t")){   
    			printTeams(); 
-   			System.exit(1);  
+   			System.exit(0);  
   		}
  	}
 
@@ -301,31 +313,27 @@ public class ClubHelper {
   	 * 
   	 * Pretty much the same as above, but with two parameters for multiple actions, quite possibly obsolete :) 
   	 * 
-  	 * @param String s - the argument determining what instruction the program will take
-  	 * @param String t - the argument determining what instruction the program will take
+  	 * @param 	s	 the argument determining what instruction the program will take
+  	 * @param 	t	 the argument determining what instruction the program will take
   	 * 
   	 */
-	
 	public void startProgram(String s, String t){
   		if(s.equalsIgnoreCase("--teams") && t.equalsIgnoreCase("--members")){
    			printTeams();
    			printMembers();
-   			System.exit(1);
+   			System.exit(0);
   		}else if(s.equalsIgnoreCase("--t") && t.equalsIgnoreCase("--m")){
    			printTeams();
    			printMembers();
-   			System.exit(1);
+   			System.exit(0);
   		}else if(t.equalsIgnoreCase("--teams") && s.equalsIgnoreCase("--members")){
    			printMembers();
    			printTeams();
-   			System.exit(1);
+   			System.exit(0);
   		}else if(t.equalsIgnoreCase("--t") && s.equalsIgnoreCase("--m")){
    			printMembers();
    			printTeams();
-   			System.exit(1);
+   			System.exit(0);
   		}
  	}
 }
-
-
-
