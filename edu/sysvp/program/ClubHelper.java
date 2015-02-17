@@ -265,6 +265,23 @@ public class ClubHelper {
     	}
     }
 
+
+
+	/**	Checks if there are any arguments to start the program with
+	If the instruction is "--members" or "--m", all members will be printed and the program exits.
+	If the istruction is "--teams" or "--t", it will instead print all the teams. */
+
+
+	public void startProgram(String s){
+  		if (s.equalsIgnoreCase("--members") || s.equalsIgnoreCase("--m")){   
+   			printMembers();               
+   			System.exit(1);                
+  		}else if(s.equalsIgnoreCase("--teams") || s.equalsIgnoreCase("--t")){   
+   			printTeams(); 
+   			System.exit(1);  
+  		}
+ 	}
+
 	/** 
   	* 
   	* Pretty much the same as above, but with two parameters for multiple actions, quite possibly obsolete :) 
@@ -291,21 +308,6 @@ public class ClubHelper {
    			printMembers();
    			printTeams();
    			System.exit(1);
-  		}
- 	}
-
-	/**	Checks if there are any arguments to start the program with
-	If the instruction is "--members" or "--m", all members will be printed and the program exits.
-	If the istruction is "--teams" or "--t", it will instead print all the teams. */
-
-
-	public void startProgram(String s){
-  		if (s.equalsIgnoreCase("--members") || s.equalsIgnoreCase("--m")){   
-   			printMembers();               
-   			System.exit(1);                
-  		}else if(s.equalsIgnoreCase("--teams") || s.equalsIgnoreCase("--t")){   
-   			printTeams(); 
-   			System.exit(1);  
   		}
  	}
 
