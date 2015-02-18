@@ -198,10 +198,11 @@ public class ClubHelper {
 		ArrayList<Member> members = cr.getMembers();
 		Collections.sort(members, new MemberAlphaComparator());
 		System.out.println("Players in the team: " + answer);
-    	for (Member m: members){
-    		String memberTeam = m.getTeam();
-    		if (memberTeam.equalsIgnoreCase(answer)){
-    			System.out.println(m.getName());
+    	
+		for (Member m: members){																   
+    		String memberTeam = m.getTeam();									  //	Finds out what team the player is in 
+    		if (memberTeam.equalsIgnoreCase(answer)){		  				      //	If it is the same as the scanner input,
+    			System.out.println(m.getName());								  //	it will be printed.
     		}
     	}
 
@@ -231,10 +232,10 @@ public class ClubHelper {
 		System.out.println();
 
     	for (Member m: members){
-    		String memberTeam = m.getTeam();
-    		boolean memberIsParent = m.isParent();
-    		if (memberTeam.equalsIgnoreCase(answer) && memberIsParent){
-    			System.out.println(m.getName() + " - is the parent of: ");
+    		String memberTeam = m.getTeam();									  	
+    		boolean memberIsParent = m.isParent();								  //	Finds out what team the member is in and if they are a parent
+    		if (memberTeam.equalsIgnoreCase(answer) && memberIsParent){			  //	
+    			System.out.println(m.getName() + " - is the parent of: ");		  // 	If they are, prints their name, their respective children's name and team. 
     			ArrayList<Member> children = m.getChildren();
     			for (Member c: children){
     				System.out.println(c.getName() + " - " + c.getTeam());
@@ -272,15 +273,15 @@ public class ClubHelper {
 		System.out.print("\nName:                ");
 		System.out.println("E-mail:\n");
 		
-    	for (Member m: members){
-			if (m.getAgeThisYear() < 18){
-				int ID = m.getId();
-				parentList = cr.getParents(ID);
-				System.out.printf("%s is underage, their parents are:\n", m.getName());
-				for (Member p : parentList){
-					System.out.printf("%-20s %s \n", p.getName(), p.getEmail());
-				}
-				System.out.println();
+    	for (Member m: members){																   
+			if (m.getAgeThisYear() < 18){														   	
+				int ID = m.getId();																   	 	
+				parentList = cr.getParents(ID);													   	
+				System.out.printf("%s is underage, their parents are:\n", m.getName());			   						
+				for (Member p : parentList){													   						
+					System.out.printf("%-20s %s \n", p.getName(), p.getEmail());				   					
+				}																								
+				System.out.println();																				
 			}else{
     			System.out.printf("%-20s %s\n", m.getName(), m.getEmail());
 				System.out.println();
@@ -296,7 +297,7 @@ public class ClubHelper {
 	 * If the instruction is "--teams" or "--t", it will instead print all the teams. The option to send both
 	 * arguments will do both actions and then terminate the program. 
 	 *  
-	 * @param command - the argument determining what instruction the program will take
+	 * @param command - the argument determining what instruction the program will take, taken from args
 	 * 
 	 */
 	public void startProgram(String command){
@@ -313,8 +314,8 @@ public class ClubHelper {
   	 * 
   	 * Pretty much the same as above, but with two parameters for multiple actions, quite possibly obsolete :) 
   	 * 
-  	 * @param 	command1	 the argument determining what instruction the program will take
-  	 * @param 	command2	 the argument determining what instruction the program will take
+  	 * @param 	command1	 the argument determining what instruction the program will take, taken from args
+  	 * @param 	command2	 the eventual other argument determining what instruction the program will take, taken from args
   	 * 
   	 */
 	public void startProgram(String command1, String command2){
