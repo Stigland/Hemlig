@@ -1,0 +1,23 @@
+Se till att stå i samma katalog som edu före ni kompilerar och kör!
+
+
+
+
+Mac-kommandon
+
+Kompilera: 
+javac -cp .:3pp/tig058.jar:3pp/sandklef-edu.jar edu/sysvp/program/*.java
+
+Kör:
+java -cp .:3pp/tig058.jar:3pp/sandklef-edu.jar edu/sysvp/program/ClubMain
+
+
+
+Windows-kommandon
+
+Kompilera:
+javac -cp .;3pp/tig058.jar;3pp/sandklef-edu.jar edu/sysvp/program/*.java
+
+Kör:
+java -cp .;3pp/tig058.jar;3pp/sandklef-edu.jar edu/sysvp/program/ClubMain
+
